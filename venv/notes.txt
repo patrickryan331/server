@@ -1,0 +1,13 @@
+--To install the virtual environment
+python 3 -m pip install virtualenv
+
+--To create the new virtual environment 
+pytohn3 -m venv venv
+
+--To activate thhe virtual environment
+
+mac:
+source venv/bin/activate
+
+windows:
+venv\scripts\activate   **(backward slash)**
