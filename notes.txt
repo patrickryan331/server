@@ -4,10 +4,10 @@ python 3 -m pip install virtualenv
 --To create the new virtual environment 
 pytohn3 -m venv venv
 
---To activate thhe virtual environment
+--To activate the virtual environment
 
 mac:
-source venv/bin/activate
+    source venv/bin/activate
 
 windows:
-venv\scripts\activate   **(backward slash)**
+    venv\scripts\activate   **(backward slash)**
