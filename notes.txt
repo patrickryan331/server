@@ -11,3 +11,8 @@ mac:
 
 windows:
     venv\scripts\activate   **(backward slash)**
+
+
+    https://github.com/AdrianAguinaga/onlinestore-ch48.git
+
+    

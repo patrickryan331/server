@@ -1,9 +1,11 @@
 from flask import Flask, request
 import  json
+from config import db
 
-#Global Variables
+
+#Global Variable
 items = []
-#
+
 
 
 app = Flask(__name__)
@@ -30,23 +32,35 @@ def about():
 
 
 
+products = []
+
+
+def fix_id(obj):
+    obj["_id"]=str(obj["_id"])
+    return obj
 
 
 
 #### post request #### creates a new instance within the server
-@app.post("/api/product")
+@app.post("/api/products")
 def saveProduct():
-    product = request.get_json()
-    print (product)
+    newItem = request.get_json()
+    print (newItem)
+    db.products.insert_one(newItem)
     #mock the save
-    items.append(product)
-    return json.dumps(product)
+    #products.append(newItem)
+    return json.dumps(fix_id(newItem))
+
+
 
 
 #### this  gets/reads the product added to the server
-@app.get("/api/product")
+@app.get("/api/s")
 def getProducts():
     return json.dumps(items) 
+
+
+
 
 
 
