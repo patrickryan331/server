@@ -3,8 +3,11 @@ import  json
 from config import db
 
 
-#Global Variable
+#Global Variables
 items = []
+catalogItem =  []
+totalReport = []
+specialCatagory = []
 
 
 
@@ -12,7 +15,7 @@ app = Flask(__name__)
 
 @app.get("/")
 def home():
-    return "hello from flask"
+    return "Hello and Welcome to RESTfull API!"
 
 @app.get("/test")
 def test():
@@ -52,6 +55,13 @@ def saveProduct():
     return json.dumps(fix_id(newItem))
 
 
+@app.post("/api/catalog")
+def saveCatalog():
+    catalogItem = request.get_json()
+    print (catalogItem)
+    db.products.insert_one(catalogItem)
+    return json.dumps(fix_id(catalogItem))
+
 
 
 #### this  gets/reads the product added to the server
@@ -60,9 +70,19 @@ def getProducts():
     return json.dumps(items) 
 
 
+@app.get("/api/catalog")
+def getCatalog():
+    return json.dumps(catalogItem) 
 
 
+@app.get("/api/reports/total")
+def getTotalReport():
+    return json.dumps(totalReport)
 
+
+@app.get("/api/products/category")
+def getCatagory():
+    return json.dumps(specialCatagory) 
 
 
 
